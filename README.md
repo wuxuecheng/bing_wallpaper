@@ -34,18 +34,20 @@
 
 ### 主界面
 
-![主界面](picture/main.png)
+<img src="picture/main.png" width="700" alt="主界面">
+
 *简洁美观的主界面，壁纸预览一目了然*
 
 ### 系统托盘
 
-<img src="picture/tray-icon.png" width="400" alt="系统托盘图标">
+<img src="picture/tray-icon.png" width="200" alt="系统托盘图标">
 
 *右键托盘图标即可快速操作*
 
 ### 应用菜单
 
-![应用菜单](picture/app-menu.png)
+<img src="picture/app-menu.png" width="200" alt="应用菜单">
+
 *在系统应用菜单中启动*
 
 </div>
@@ -192,15 +194,12 @@ cd bing-wallpaper-setter
 ./uninstall.sh  # 便携版
 ```
 
-
-
 ### 脚本卸载
 
 ```bash
 cd bing-wallpaper-setter
 ./scripts/uninstall.sh   # 或 ./uninstall.sh  # 便携版
 ```
-
 
 卸载程序会：
 
