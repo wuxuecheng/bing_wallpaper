@@ -232,6 +232,8 @@ QString BingWallpaperSetter::detectDesktopEnvironment() {
         return "gnome";
     } else if (desktop.contains("kde") || desktop.contains("plasma")) {
         return "kde";
+    }else if (desktop.contains("ukui")) {
+        return "ukui";
     }
     
     return "unknown";
@@ -264,6 +266,26 @@ bool BingWallpaperSetter::setWallpaperGnome(const QString &imagePath) {
     }
     
     qDebug() << "GNOME壁纸设置成功";
+    return true;
+}
+
+bool BingWallpaperSetter::setWallpaperUkui(const QString &imagePath) {
+    //QString fileUri = "file://"imagePath;
+    // 设置壁纸
+    QProcess process;
+    process.start("gsettings", QStringList() << "set" << "org.mate.background"
+                  << "picture-filename" << imagePath);
+    if (!process.waitForFinished(-1) || process.exitCode() != 0) {
+        qDebug() << "设置picture-filename失败";
+        return false;
+    }
+    // 设置壁纸显示选项为缩放
+    process.start("gsettings", QStringList() << "set" << "org.mate.background"
+                  << "picture-options" << "zoom");
+    if (!process.waitForFinished(-1) || process.exitCode() != 0) {
+        qDebug() << "设置picture-options失败";
+    }
+    qDebug() << "UKUI壁纸设置成功";
     return true;
 }
 
@@ -304,6 +326,8 @@ bool BingWallpaperSetter::setWallpaper(const QString &imagePath) {
         return setWallpaperGnome(imagePath);
     } else if (desktop == "kde") {
         return setWallpaperKde(imagePath);
+    } else if (desktop == "ukui") {
+        return setWallpaperUkui(imagePath);
     } else {
         qDebug() << "未知桌面环境，尝试使用GNOME方法...";
         return setWallpaperGnome(imagePath);

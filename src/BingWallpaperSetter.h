@@ -39,6 +39,7 @@ private:
     void cleanupOldWallpapers(int keepDays = 7);
     bool setWallpaperGnome(const QString &imagePath);
     bool setWallpaperKde(const QString &imagePath);
+    bool setWallpaperUkui(const QString &imagePath);
     QString detectDesktopEnvironment();
     bool setWallpaper(const QString &imagePath);
     void loadSettings();
