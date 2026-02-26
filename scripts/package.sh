@@ -90,7 +90,7 @@ create_deb_package() {
     SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
     PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
     PKG_NAME="bing-wallpaper-setter"
-    PKG_VERSION="1.0.1"
+    PKG_VERSION="1.1.0"
     PKG_ARCH="amd64"
     PKG_DIR="${PROJECT_ROOT}/dist/package/${PKG_NAME}_${PKG_VERSION}_${PKG_ARCH}"
     
@@ -296,8 +296,8 @@ show_package_info() {
     print_info "生成的文件："
     echo
     echo "1. DEB安装包（推荐）:"
-    echo "   dist/bing-wallpaper-setter_1.0.1_amd64.deb"
-    echo "   安装方法: sudo dpkg -i dist/bing-wallpaper-setter_1.0.1_amd64.deb"
+    echo "   dist/bing-wallpaper-setter_x.x.x_amd64.deb"
+    echo "   安装方法: sudo dpkg -i dist/bing-wallpaper-setter_x.x.x_amd64.deb"
     echo "   或双击安装"
     echo
     echo "2. 便携版压缩包:"

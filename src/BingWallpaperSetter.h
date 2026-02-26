@@ -17,7 +17,7 @@ public:
     explicit BingWallpaperSetter(QObject *parent = nullptr);
     ~BingWallpaperSetter();
     
-    void downloadAndSetWallpaper();
+    void downloadAndSetWallpaper(int button);
     QString getCurrentWallpaperPath() const;
     QString getWallpaperDirectory() const;
     void setWallpaperDirectory(const QString &directory);
@@ -26,7 +26,7 @@ public:
 signals:
     void downloadStarted();
     void downloadProgress(int percentage);
-    void downloadFinished(bool success, const QString &message);
+    void downloadFinished(bool success, const QString &message, int offset = 0);
     void wallpaperSet(const QString &path);
     
 private slots:
@@ -52,6 +52,7 @@ private:
     QString m_bingApiUrl;
     QNetworkReply *m_currentReply;
     bool m_isCustomDirectory;
+    short m_currentOffset;
 };
 
 #endif // BINGWALLPAPERSETTER_H
